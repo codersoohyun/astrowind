@@ -12,10 +12,8 @@ import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
-// Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
 
-// ✅ 추가된 부분
 import Navbar from '~/components/Navbar.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
@@ -38,17 +36,22 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-
-    <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
+
+    <!-- ✅ Inter 폰트 링크 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
-    <!-- ✅ 여기 추가됨 -->
+    <!-- ✅ 텍스트 로고 배너 추가 -->
+    <div class="text-center bg-black text-white py-4">
+      <h1 class="text-3xl font-bold tracking-wide" style="font-family: 'Inter', sans-serif;">
+        PICKBOOM365
+      </h1>
+    </div>
+
     <Navbar />
-
     <slot />
-
     <BasicScripts />
   </body>
 </html>
